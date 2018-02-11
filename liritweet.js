@@ -33,3 +33,4 @@ client.get('statuses/user_timeline', params, function(error, tweets, response) {
 var tweetResult = JSON.stringify(client,null,2);
 
 // console.log(tweetResult);
+module.exports= tweetResult.js;
