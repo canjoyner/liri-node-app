@@ -15,7 +15,10 @@ exports.spotify = {
 };
 
 
-
+module.exports = {
+  twitter: exports.twitter,
+  spotify: exports.spotify
+}
 
 
 

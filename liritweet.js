@@ -5,26 +5,31 @@ console.log("liritweet.js is working");
 
 var twitterCon = require('twitter');
 
-var tweet = new twitterCon ({
+var client = new twitterCon ({
  	consumer_key: keys.twitter.consumer_key,
-  	consumer_secret: keys.twitter.CONSUMER_SECRET,
-  	access_token_key: keys.twitter.ACCESS_TOKEN_KEY,
-  	access_token_secret: keys.twitter.ACCESS_TOKEN_
-  	 // request_options: {
-    // proxy: 'http://myproxyserver.com:1234'}
+  	consumer_secret: keys.twitter.consumer_secret,
+  	access_token_key: keys.twitter.access_token_key,
+  	access_token_secret: keys.twitter.access_token_secret
  });
 
- // console.log(tweet);
- tweet.get('favorites/list', function(error, tweets, response) {
-  if (!error) {
-    console.log(tweets);}
-});
 
+// console.log(client)
 
- var tweetId = lirijoy;
-client.post('statuses/retweet/' + tweetId, function(error, tweet, response) {
-  if (!error) {
-    console.log(tweet);
+var params = "liricanjoy";
+client.get('statuses/user_timeline', params, function(error, tweets, response) {
+  if (error) 
+  	{ console.log(error);}
+   else{ 
+    // for (var i = 0; (i < tweets.length) && (i < 20); i++) {
+    //   console.log("I tweeted: " + tweets[i].text + "\n" + "At this time: " + tweets[i].created_at + "\n");
+    console.log(tweets)
   }
+// };
 });
 
+
+// client.get('statuses/update', params, callback);
+
+var tweetResult = JSON.stringify(client,null,2);
+
+// console.log(tweetResult);
